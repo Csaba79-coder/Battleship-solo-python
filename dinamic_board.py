@@ -1,8 +1,15 @@
 # Dinamic board --> Battleship
 import string
+import os
 
 
 # def handle_user input
+
+print(string.ascii_letters)
+
+def clear():
+    clear = os.system("clear")
+    return clear
 
 
 def main():
@@ -18,7 +25,7 @@ def main():
     # hided_board = hided_board(board)
     row =  ship_coordinates_row(size)
     col = ship_coordinates_column(size)
-    
+
     guesses(board, row, col)
     # new_board = []
     # new_board = new_board.append(board[row][col], board[row])
@@ -55,16 +62,14 @@ def hided_board(board, size, col, row):
     # place the ship and hide again!
 
 
-
-def guesses(board, row, col):
-    board = [['0', '0', '0', '0', '0'], ['0', '0', '0', '0', '0'], ['0', '0', '0', '0', '0'], ['0', '0', '0', '0', '0'], ['0', '0', '0', '0', '0']]
+def guesses(board, row, col): # this is the hided board after the ships placed
+    # board = [['0', '0', '0', '0', '0'], ['0', '0', '0', '0', '0'], ['0', '0', '0', '0', '0'], ['0', '0', '0', '0', '0'], ['0', '0', '0', '0', '0']]
     if board[row][col] == 'H' or board[row][col] == 'S' or board[row][col] == 'M':
         print("You have already guessed that place!")
-
     # Check that there are no repeats
     if board[row][col] == 'X':
         print("HIT!")
-        board[row][col] = 'H'
+        board[row][col] = 'H' 
     else:
         board[row][col] = '0'
         print("MISS!")
@@ -93,6 +98,7 @@ def ship_coordinates_row(size):
     row_index = 0
     if row in string.ascii_letters:
         row_index = string.ascii_letters.index(row)
+        print(row_index)
     return row_index
 
     
